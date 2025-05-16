@@ -11,10 +11,8 @@ import com.velocitypowered.api.plugin.annotation.DataDirectory;
 import com.velocitypowered.api.event.proxy.ProxyShutdownEvent;
 import org.slf4j.Logger;
 
-// Import for miniMessage
 import net.kyori.adventure.text.minimessage.MiniMessage;
 import net.kyori.adventure.text.Component;
-
 
 import io.lettuce.core.RedisClient;
 import io.lettuce.core.api.StatefulRedisConnection;
@@ -37,7 +35,7 @@ import java.net.URI;
 
 @Plugin(id = "unifiedproxy", name = "UnifiedProxy", version = "1.0",
         description = "Syncs player counts across multiple Velocity proxies using Redis.",
-        authors = {"BarneyTheGod"})
+        authors = {"BarneyTheGod", "SaigeDev"})
 public class UnifiedProxy {
 
     @Inject
@@ -77,7 +75,6 @@ public class UnifiedProxy {
         logger.info("This proxy's ID: " + proxyId);
 
         try {
-
             URI redisUri = new URI("redis://" + (redisConfig.password.isEmpty() ? "" : redisConfig.password + "@") +
                     redisConfig.host + ":" + redisConfig.port + "/" + redisConfig.database);
 
@@ -135,6 +132,7 @@ public class UnifiedProxy {
 
     private void loadConfig() {
         logger.debug("Attempting to load configuration...");
+
         if (!Files.exists(dataDirectory)) {
             logger.debug("Data directory does not exist. Creating directories: " + dataDirectory);
             try {
@@ -142,59 +140,85 @@ public class UnifiedProxy {
                 logger.debug("Data directory created: " + dataDirectory);
             } catch (IOException e) {
                 logger.error("Failed to create data directory: " + e.getMessage());
-                redisConfig = new RedisConfig();
-                pluginConfig = new PluginConfig();
+                useDefaultConfig();
                 return;
             }
         } else {
             logger.debug("Data directory already exists: " + dataDirectory);
         }
 
-        Path configFile = dataDirectory.resolve("config.yaml");
+        Path configFile = dataDirectory.resolve("config.yml");
+        logger.debug("Config file path: " + configFile);
+
         YamlConfigurationLoader loader = YamlConfigurationLoader.builder()
                 .path(configFile)
                 .build();
 
         try {
-            logger.debug("Checking if config file exists: " + configFile);
             if (!Files.exists(configFile)) {
-                logger.info("Config file does not exist. Attempting to copy default from resources.");
-                try (InputStream defaultConfigStream = getClass().getClassLoader().getResourceAsStream("config.yaml")) {
-                    if (defaultConfigStream != null) {
-                        Files.copy(defaultConfigStream, configFile);
-                        logger.info("Created default config.yaml at " + configFile);
-                    } else {
-                        logger.warn("Default config.yaml not found in plugin resources. Cannot create default config.");
-
-                    }
-                } catch (IOException e) {
-                    logger.error("Failed to copy default config file: " + e.getMessage());
-                }
+                logger.info("Config file does not exist. Creating default config at: " + configFile);
+                createDefaultConfig(configFile);
             } else {
                 logger.debug("Config file already exists: " + configFile);
             }
 
-            org.spongepowered.configurate.CommentedConfigurationNode root = loader.load();
-            redisConfig = root.node("redis").get(RedisConfig.class);
-            pluginConfig = root.node("plugin").get(PluginConfig.class);
+            if (Files.exists(configFile) && Files.size(configFile) > 0) {
+                org.spongepowered.configurate.CommentedConfigurationNode root = loader.load();
+                redisConfig = root.node("redis").get(RedisConfig.class);
+                pluginConfig = root.node("plugin").get(PluginConfig.class);
 
-            if (redisConfig == null) {
-                logger.warn("Redis configuration section not found in config.yaml. Using default values.");
-                redisConfig = new RedisConfig();
-            }
-            if (pluginConfig == null) {
-                logger.warn("Plugin configuration section not found in config.yaml. Using default values.");
-                pluginConfig = new PluginConfig();
-            }
+                if (redisConfig == null) {
+                    logger.warn("Redis configuration section not found. Using defaults.");
+                    redisConfig = new RedisConfig();
+                }
+                if (pluginConfig == null) {
+                    logger.warn("Plugin configuration section not found. Using defaults.");
+                    pluginConfig = new PluginConfig();
+                }
 
-            logger.info("Configuration loaded successfully from " + configFile);
-        } catch (ConfigurateException e) {
-            logger.error("Failed to load config.yaml: " + e.getMessage());
-            redisConfig = new RedisConfig();
-            pluginConfig = new PluginConfig();
+                logger.info("Configuration loaded successfully from " + configFile);
+            } else {
+                logger.warn("Config file doesn't exist or is empty after creation attempt.");
+                useDefaultConfig();
+            }
+        } catch (IOException e) {
+            logger.error("Failed to load config: " + e.getMessage());
+            useDefaultConfig();
         }
     }
 
+    private void createDefaultConfig(Path configFile) {
+        try {
+            try (InputStream defaultConfigStream = getClass().getClassLoader().getResourceAsStream("config.yml")) {
+                if (defaultConfigStream != null) {
+                    Files.copy(defaultConfigStream, configFile);
+                    logger.info("Created default config.yml from resources");
+                } else {
+                    logger.warn("Default config.yml not found in resources. Creating a basic config file.");
+                    String defaultConfig =
+                            "# UnifiedProxy Configuration\n\n" +
+                                    "redis:\n" +
+                                    "  host: localhost\n" +
+                                    "  port: 6379\n" +
+                                    "  password: ''\n" +
+                                    "  database: 0\n\n" +
+                                    "plugin:\n" +
+                                    "  heartbeatIntervalSeconds: 5\n";
+
+                    Files.writeString(configFile, defaultConfig);
+                    logger.info("Created basic config.yml with default values");
+                }
+            }
+        } catch (IOException e) {
+            logger.error("Failed to create default config file: " + e.getMessage());
+        }
+    }
+
+    private void useDefaultConfig() {
+        logger.info("Using default configuration values");
+        redisConfig = new RedisConfig();
+        pluginConfig = new PluginConfig();
+    }
 
     private void sendHeartbeat() {
         int localPlayerCount = server.getPlayerCount();
@@ -216,7 +240,6 @@ public class UnifiedProxy {
 
     @Subscribe
     public void onProxyPing(ProxyPingEvent event) {
-        // this adds up all players from all proxies
         int totalPlayers = 0;
         for (int count : playerCounts.values()) {
             totalPlayers += count;
@@ -226,12 +249,8 @@ public class UnifiedProxy {
             totalPlayers += server.getPlayerCount();
         }
 
-
-        // overrides player count
         ServerPing.Builder builder = event.getPing().asBuilder();
         builder.onlinePlayers(totalPlayers);
-        // you might want to adjust the maximum players
-        // builder.maximumPlayers(event.getPing().getMaximumPlayers()); # you can keep original max players or set it dynamically
 
         event.setPing(builder.build());
     }
@@ -251,7 +270,6 @@ public class UnifiedProxy {
         logger.info("UnifiedProxy has shut down Redis connections.");
     }
 
-    // config
     public static class RedisConfig {
         public String host = "localhost";
         public int port = 6379;
