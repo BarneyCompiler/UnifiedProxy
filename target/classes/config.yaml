@@ -1,0 +1,10 @@
+# UnifiedProxy Plugin Configuration
+
+redis:
+  host: "localhost"
+  port: 6379
+  password: ""
+  database: 0
+
+plugin:
+  heartbeat_interval_seconds: 5

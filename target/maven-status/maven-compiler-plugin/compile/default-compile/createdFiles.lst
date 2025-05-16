@@ -1,0 +1,5 @@
+org\barney\unifiedProxy\UnifiedProxy.class
+org\barney\unifiedProxy\UnifiedProxy$1.class
+org\barney\unifiedProxy\UnifiedProxy$RedisConfig.class
+velocity-plugin.json
+org\barney\unifiedProxy\UnifiedProxy$PluginConfig.class

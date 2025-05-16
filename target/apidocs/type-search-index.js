@@ -1,0 +1,1 @@
+typeSearchIndex = [{"l":"All Classes and Interfaces","u":"allclasses-index.html"},{"p":"org.barney.unifiedProxy","l":"UnifiedProxy.PluginConfig"},{"p":"org.barney.unifiedProxy","l":"UnifiedProxy.RedisConfig"},{"p":"org.barney.unifiedProxy","l":"UnifiedProxy"}];updateSearchResults();

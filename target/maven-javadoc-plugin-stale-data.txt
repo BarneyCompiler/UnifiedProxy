@@ -1,0 +1,97 @@
+@options
+@packages
+-classpath
+'C:/Users/Matthew/.m2/repository/com/velocitypowered/velocity-api/3.4.0-SNAPSHOT/velocity-api-3.4.0-SNAPSHOT.jar;C:/Users/Matthew/.m2/repository/com/google/code/gson/gson/2.10.1/gson-2.10.1.jar;C:/Users/Matthew/.m2/repository/com/google/guava/guava/25.1-jre/guava-25.1-jre.jar;C:/Users/Matthew/.m2/repository/com/google/code/findbugs/jsr305/3.0.2/jsr305-3.0.2.jar;C:/Users/Matthew/.m2/repository/com/google/j2objc/j2objc-annotations/1.1/j2objc-annotations-1.1.jar;C:/Users/Matthew/.m2/repository/org/codehaus/mojo/animal-sniffer-annotations/1.14/animal-sniffer-annotations-1.14.jar;C:/Users/Matthew/.m2/repository/com/moandjiezana/toml/toml4j/0.7.2/toml4j-0.7.2.jar;C:/Users/Matthew/.m2/repository/net/kyori/adventure-api/4.21.0/adventure-api-4.21.0.jar;C:/Users/Matthew/.m2/repository/net/kyori/adventure-key/4.21.0/adventure-key-4.21.0.jar;C:/Users/Matthew/.m2/repository/net/kyori/examination-api/1.3.0/examination-api-1.3.0.jar;C:/Users/Matthew/.m2/repository/net/kyori/examination-string/1.3.0/examination-string-1.3.0.jar;C:/Users/Matthew/.m2/repository/org/jetbrains/annotations/26.0.2/annotations-26.0.2.jar;C:/Users/Matthew/.m2/repository/net/kyori/adventure-text-serializer-gson/4.21.0/adventure-text-serializer-gson-4.21.0.jar;C:/Users/Matthew/.m2/repository/net/kyori/adventure-text-serializer-json/4.21.0/adventure-text-serializer-json-4.21.0.jar;C:/Users/Matthew/.m2/repository/net/kyori/option/1.1.0/option-1.1.0.jar;C:/Users/Matthew/.m2/repository/com/google/auto/service/auto-service-annotations/1.1.1/auto-service-annotations-1.1.1.jar;C:/Users/Matthew/.m2/repository/net/kyori/adventure-text-serializer-commons/4.21.0/adventure-text-serializer-commons-4.21.0.jar;C:/Users/Matthew/.m2/repository/net/kyori/adventure-text-serializer-legacy/4.21.0/adventure-text-serializer-legacy-4.21.0.jar;C:/Users/Matthew/.m2/repository/net/kyori/adventure-text-serializer-plain/4.21.0/adventure-text-serializer-plain-4.21.0.jar;C:/Users/Matthew/.m2/repository/net/kyori/adventure-text-minimessage/4.21.0/adventure-text-minimessage-4.21.0.jar;C:/Users/Matthew/.m2/repository/net/kyori/adventure-text-logger-slf4j/4.21.0/adventure-text-logger-slf4j-4.21.0.jar;C:/Users/Matthew/.m2/repository/net/kyori/adventure-text-serializer-ansi/4.21.0/adventure-text-serializer-ansi-4.21.0.jar;C:/Users/Matthew/.m2/repository/net/kyori/ansi/1.1.1/ansi-1.1.1.jar;C:/Users/Matthew/.m2/repository/org/slf4j/slf4j-api/2.0.12/slf4j-api-2.0.12.jar;C:/Users/Matthew/.m2/repository/com/google/inject/guice/6.0.0/guice-6.0.0.jar;C:/Users/Matthew/.m2/repository/javax/inject/javax.inject/1/javax.inject-1.jar;C:/Users/Matthew/.m2/repository/jakarta/inject/jakarta.inject-api/2.0.1/jakarta.inject-api-2.0.1.jar;C:/Users/Matthew/.m2/repository/aopalliance/aopalliance/1.0/aopalliance-1.0.jar;C:/Users/Matthew/.m2/repository/org/checkerframework/checker-qual/3.42.0/checker-qual-3.42.0.jar;C:/Users/Matthew/.m2/repository/com/velocitypowered/velocity-brigadier/1.0.0-SNAPSHOT/velocity-brigadier-1.0.0-SNAPSHOT.jar;C:/Users/Matthew/.m2/repository/org/spongepowered/configurate-hocon/4.1.2/configurate-hocon-4.1.2.jar;C:/Users/Matthew/.m2/repository/com/typesafe/config/1.4.1/config-1.4.1.jar;C:/Users/Matthew/.m2/repository/org/spongepowered/configurate-gson/4.1.2/configurate-gson-4.1.2.jar;C:/Users/Matthew/.m2/repository/com/github/ben-manes/caffeine/caffeine/3.1.8/caffeine-3.1.8.jar;C:/Users/Matthew/.m2/repository/org/jspecify/jspecify/0.3.0/jspecify-0.3.0.jar;C:/Users/Matthew/.m2/repository/io/lettuce/lettuce-core/6.3.2.RELEASE/lettuce-core-6.3.2.RELEASE.jar;C:/Users/Matthew/.m2/repository/io/netty/netty-common/4.1.107.Final/netty-common-4.1.107.Final.jar;C:/Users/Matthew/.m2/repository/io/netty/netty-handler/4.1.107.Final/netty-handler-4.1.107.Final.jar;C:/Users/Matthew/.m2/repository/io/netty/netty-resolver/4.1.107.Final/netty-resolver-4.1.107.Final.jar;C:/Users/Matthew/.m2/repository/io/netty/netty-buffer/4.1.107.Final/netty-buffer-4.1.107.Final.jar;C:/Users/Matthew/.m2/repository/io/netty/netty-transport-native-unix-common/4.1.107.Final/netty-transport-native-unix-common-4.1.107.Final.jar;C:/Users/Matthew/.m2/repository/io/netty/netty-codec/4.1.107.Final/netty-codec-4.1.107.Final.jar;C:/Users/Matthew/.m2/repository/io/netty/netty-transport/4.1.107.Final/netty-transport-4.1.107.Final.jar;C:/Users/Matthew/.m2/repository/io/projectreactor/reactor-core/3.6.4/reactor-core-3.6.4.jar;C:/Users/Matthew/.m2/repository/org/reactivestreams/reactive-streams/1.0.4/reactive-streams-1.0.4.jar;C:/Users/Matthew/.m2/repository/org/spongepowered/configurate-yaml/4.1.2/configurate-yaml-4.1.2.jar;C:/Users/Matthew/.m2/repository/org/spongepowered/configurate-core/4.1.2/configurate-core-4.1.2.jar;C:/Users/Matthew/.m2/repository/io/leangen/geantyref/geantyref/1.3.11/geantyref-1.3.11.jar;C:/Users/Matthew/.m2/repository/com/google/errorprone/error_prone_annotations/2.6.0/error_prone_annotations-2.6.0.jar'
+-encoding
+'UTF-8'
+-protected
+-source
+'17'
+-sourcepath
+'C:/Users/Matthew/Desktop/Plugins/ZelzNET/UnifiedProxy/src/main/java;C:/Users/Matthew/Desktop/Plugins/ZelzNET/UnifiedProxy/target/generated-sources/annotations'
+-author
+-bottom
+'Copyright &#169; 2025. All rights reserved.'
+-charset
+'UTF-8'
+-d
+'C:/Users/Matthew/Desktop/Plugins/ZelzNET/UnifiedProxy/target/apidocs'
+-docencoding
+'UTF-8'
+-doctitle
+'unifiedproxy 1.1 API'
+-use
+-version
+-windowtitle
+'unifiedproxy 1.1 API'
+org.barney.unifiedProxy
+C:\Users\Matthew\.m2\repository\com\velocitypowered\velocity-api\3.4.0-SNAPSHOT\velocity-api-3.4.0-SNAPSHOT.jar = 1747422241506
+C:\Users\Matthew\.m2\repository\com\google\code\gson\gson\2.10.1\gson-2.10.1.jar = 1747422242065
+C:\Users\Matthew\.m2\repository\com\google\guava\guava\25.1-jre\guava-25.1-jre.jar = 1747422242374
+C:\Users\Matthew\.m2\repository\com\google\code\findbugs\jsr305\3.0.2\jsr305-3.0.2.jar = 1734911576798
+C:\Users\Matthew\.m2\repository\com\google\j2objc\j2objc-annotations\1.1\j2objc-annotations-1.1.jar = 1747422241496
+C:\Users\Matthew\.m2\repository\org\codehaus\mojo\animal-sniffer-annotations\1.14\animal-sniffer-annotations-1.14.jar = 1747422239505
+C:\Users\Matthew\.m2\repository\com\moandjiezana\toml\toml4j\0.7.2\toml4j-0.7.2.jar = 1747422240410
+C:\Users\Matthew\.m2\repository\net\kyori\adventure-api\4.21.0\adventure-api-4.21.0.jar = 1747422237173
+C:\Users\Matthew\.m2\repository\net\kyori\adventure-key\4.21.0\adventure-key-4.21.0.jar = 1747422237076
+C:\Users\Matthew\.m2\repository\net\kyori\examination-api\1.3.0\examination-api-1.3.0.jar = 1747422237876
+C:\Users\Matthew\.m2\repository\net\kyori\examination-string\1.3.0\examination-string-1.3.0.jar = 1747422240187
+C:\Users\Matthew\.m2\repository\org\jetbrains\annotations\26.0.2\annotations-26.0.2.jar = 1747422238120
+C:\Users\Matthew\.m2\repository\net\kyori\adventure-text-serializer-gson\4.21.0\adventure-text-serializer-gson-4.21.0.jar = 1747422239001
+C:\Users\Matthew\.m2\repository\net\kyori\adventure-text-serializer-json\4.21.0\adventure-text-serializer-json-4.21.0.jar = 1747422239692
+C:\Users\Matthew\.m2\repository\net\kyori\option\1.1.0\option-1.1.0.jar = 1747422238050
+C:\Users\Matthew\.m2\repository\com\google\auto\service\auto-service-annotations\1.1.1\auto-service-annotations-1.1.1.jar = 1747422239136
+C:\Users\Matthew\.m2\repository\net\kyori\adventure-text-serializer-commons\4.21.0\adventure-text-serializer-commons-4.21.0.jar = 1747422236935
+C:\Users\Matthew\.m2\repository\net\kyori\adventure-text-serializer-legacy\4.21.0\adventure-text-serializer-legacy-4.21.0.jar = 1747422236528
+C:\Users\Matthew\.m2\repository\net\kyori\adventure-text-serializer-plain\4.21.0\adventure-text-serializer-plain-4.21.0.jar = 1747422239067
+C:\Users\Matthew\.m2\repository\net\kyori\adventure-text-minimessage\4.21.0\adventure-text-minimessage-4.21.0.jar = 1747422238423
+C:\Users\Matthew\.m2\repository\net\kyori\adventure-text-logger-slf4j\4.21.0\adventure-text-logger-slf4j-4.21.0.jar = 1747422241353
+C:\Users\Matthew\.m2\repository\net\kyori\adventure-text-serializer-ansi\4.21.0\adventure-text-serializer-ansi-4.21.0.jar = 1747422237087
+C:\Users\Matthew\.m2\repository\net\kyori\ansi\1.1.1\ansi-1.1.1.jar = 1747422240589
+C:\Users\Matthew\.m2\repository\org\slf4j\slf4j-api\2.0.12\slf4j-api-2.0.12.jar = 1747422238208
+C:\Users\Matthew\.m2\repository\com\google\inject\guice\6.0.0\guice-6.0.0.jar = 1747422239294
+C:\Users\Matthew\.m2\repository\javax\inject\javax.inject\1\javax.inject-1.jar = 1734911568187
+C:\Users\Matthew\.m2\repository\jakarta\inject\jakarta.inject-api\2.0.1\jakarta.inject-api-2.0.1.jar = 1747422237538
+C:\Users\Matthew\.m2\repository\aopalliance\aopalliance\1.0\aopalliance-1.0.jar = 1734911587871
+C:\Users\Matthew\.m2\repository\org\checkerframework\checker-qual\3.42.0\checker-qual-3.42.0.jar = 1747422240026
+C:\Users\Matthew\.m2\repository\com\velocitypowered\velocity-brigadier\1.0.0-SNAPSHOT\velocity-brigadier-1.0.0-SNAPSHOT.jar = 1747422240251
+C:\Users\Matthew\.m2\repository\org\spongepowered\configurate-hocon\4.1.2\configurate-hocon-4.1.2.jar = 1747425214031
+C:\Users\Matthew\.m2\repository\com\typesafe\config\1.4.1\config-1.4.1.jar = 1747422240261
+C:\Users\Matthew\.m2\repository\org\spongepowered\configurate-gson\4.1.2\configurate-gson-4.1.2.jar = 1747425215134
+C:\Users\Matthew\.m2\repository\com\github\ben-manes\caffeine\caffeine\3.1.8\caffeine-3.1.8.jar = 1747422241816
+C:\Users\Matthew\.m2\repository\org\jspecify\jspecify\0.3.0\jspecify-0.3.0.jar = 1747422242997
+C:\Users\Matthew\.m2\repository\io\lettuce\lettuce-core\6.3.2.RELEASE\lettuce-core-6.3.2.RELEASE.jar = 1747423723875
+C:\Users\Matthew\.m2\repository\io\netty\netty-common\4.1.107.Final\netty-common-4.1.107.Final.jar = 1747423722645
+C:\Users\Matthew\.m2\repository\io\netty\netty-handler\4.1.107.Final\netty-handler-4.1.107.Final.jar = 1747423724535
+C:\Users\Matthew\.m2\repository\io\netty\netty-resolver\4.1.107.Final\netty-resolver-4.1.107.Final.jar = 1747423723967
+C:\Users\Matthew\.m2\repository\io\netty\netty-buffer\4.1.107.Final\netty-buffer-4.1.107.Final.jar = 1747423722367
+C:\Users\Matthew\.m2\repository\io\netty\netty-transport-native-unix-common\4.1.107.Final\netty-transport-native-unix-common-4.1.107.Final.jar = 1747423723663
+C:\Users\Matthew\.m2\repository\io\netty\netty-codec\4.1.107.Final\netty-codec-4.1.107.Final.jar = 1747423724983
+C:\Users\Matthew\.m2\repository\io\netty\netty-transport\4.1.107.Final\netty-transport-4.1.107.Final.jar = 1747423723541
+C:\Users\Matthew\.m2\repository\io\projectreactor\reactor-core\3.6.4\reactor-core-3.6.4.jar = 1747423723831
+C:\Users\Matthew\.m2\repository\org\reactivestreams\reactive-streams\1.0.4\reactive-streams-1.0.4.jar = 1747423724881
+C:\Users\Matthew\.m2\repository\org\spongepowered\configurate-yaml\4.1.2\configurate-yaml-4.1.2.jar = 1747425215093
+C:\Users\Matthew\.m2\repository\org\spongepowered\configurate-core\4.1.2\configurate-core-4.1.2.jar = 1747425214449
+C:\Users\Matthew\.m2\repository\io\leangen\geantyref\geantyref\1.3.11\geantyref-1.3.11.jar = 1747422241072
+C:\Users\Matthew\.m2\repository\com\google\errorprone\error_prone_annotations\2.6.0\error_prone_annotations-2.6.0.jar = 1747422238825
+C:\Users\Matthew\Desktop\Plugins\ZelzNET\UnifiedProxy\src\main\java = 1747422181383
+C:\Users\Matthew\Desktop\Plugins\ZelzNET\UnifiedProxy\target\generated-sources\annotations = 1747426923218
+C:\Users\Matthew\Desktop\Plugins\ZelzNET\UnifiedProxy\target\apidocs\allclasses-index.html = 1747426929355
+C:\Users\Matthew\Desktop\Plugins\ZelzNET\UnifiedProxy\target\apidocs\allpackages-index.html = 1747426929358
+C:\Users\Matthew\Desktop\Plugins\ZelzNET\UnifiedProxy\target\apidocs\copy.svg = 1747426929402
+C:\Users\Matthew\Desktop\Plugins\ZelzNET\UnifiedProxy\target\apidocs\element-list = 1747426929278
+C:\Users\Matthew\Desktop\Plugins\ZelzNET\UnifiedProxy\target\apidocs\help-doc.html = 1747426929394
+C:\Users\Matthew\Desktop\Plugins\ZelzNET\UnifiedProxy\target\apidocs\index-all.html = 1747426929381
+C:\Users\Matthew\Desktop\Plugins\ZelzNET\UnifiedProxy\target\apidocs\index.html = 1747426929388
+C:\Users\Matthew\Desktop\Plugins\ZelzNET\UnifiedProxy\target\apidocs\link.svg = 1747426929404
+C:\Users\Matthew\Desktop\Plugins\ZelzNET\UnifiedProxy\target\apidocs\member-search-index.js = 1747426929366
+C:\Users\Matthew\Desktop\Plugins\ZelzNET\UnifiedProxy\target\apidocs\module-search-index.js = 1747426929360
+C:\Users\Matthew\Desktop\Plugins\ZelzNET\UnifiedProxy\target\apidocs\overview-tree.html = 1747426929337
+C:\Users\Matthew\Desktop\Plugins\ZelzNET\UnifiedProxy\target\apidocs\package-search-index.js = 1747426929362
+C:\Users\Matthew\Desktop\Plugins\ZelzNET\UnifiedProxy\target\apidocs\script.js = 1747426929400
+C:\Users\Matthew\Desktop\Plugins\ZelzNET\UnifiedProxy\target\apidocs\search-page.js = 1747426929419
+C:\Users\Matthew\Desktop\Plugins\ZelzNET\UnifiedProxy\target\apidocs\search.html = 1747426929384
+C:\Users\Matthew\Desktop\Plugins\ZelzNET\UnifiedProxy\target\apidocs\search.js = 1747426929409
+C:\Users\Matthew\Desktop\Plugins\ZelzNET\UnifiedProxy\target\apidocs\stylesheet.css = 1747426929398
+C:\Users\Matthew\Desktop\Plugins\ZelzNET\UnifiedProxy\target\apidocs\tag-search-index.js = 1747426929367
+C:\Users\Matthew\Desktop\Plugins\ZelzNET\UnifiedProxy\target\apidocs\type-search-index.js = 1747426929364

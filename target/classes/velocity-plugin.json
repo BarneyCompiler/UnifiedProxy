@@ -1,0 +1,1 @@
+{"id":"unifiedproxy","name":"UnifiedProxy","version":"1.0","description":"Syncs player counts across multiple Velocity proxies using Redis.","authors":["BarneyTheGod"],"dependencies":[],"main":"org.barney.unifiedProxy.UnifiedProxy"}
