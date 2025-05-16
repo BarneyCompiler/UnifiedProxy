@@ -32,7 +32,6 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.io.InputStream;
 import java.net.URI;
-import java.util.List;
 import java.util.Set;
 
 @Plugin(id = "unifiedproxy", name = "UnifiedProxy", version = "1.0",
@@ -188,11 +187,8 @@ public class UnifiedProxy {
                 logger.warn("Config file doesn't exist or is empty after creation attempt. Using default values.");
                 useDefaultConfig();
             }
-        } catch (ConfigurateException e) {
+        } catch (ConfigurateException | IOException e) {
             logger.error("Failed to load config from " + configFile + ": " + e.getMessage());
-            useDefaultConfig();
-        } catch (IOException e) {
-            logger.error("IO error while loading config from " + configFile + ": " + e.getMessage());
             useDefaultConfig();
         }
     }
@@ -254,7 +250,7 @@ public class UnifiedProxy {
     public void onProxyPing(ProxyPingEvent event) {
         int totalPlayers = 0;
         try {
-            List<String> proxyKeys = redisSyncCommands.keys(REDIS_KEY_PREFIX + "*");
+            Set<String> proxyKeys = redisSyncCommands.keys(REDIS_KEY_PREFIX + "*");
             logger.debug("Found " + proxyKeys.size() + " proxy keys in Redis.");
 
             for (String key : proxyKeys) {
